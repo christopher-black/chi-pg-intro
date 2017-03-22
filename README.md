@@ -14,8 +14,8 @@
 
 **Client**
 
-- [ ] AJAX call to GET our books (print to console)
-- [ ] Append them to the DOM
+- [x] AJAX call to GET our books (print to console)
+- [x] Append them to the DOM
 - [ ] Create our HTML form
 - [ ] AJAX call to POST the form data
 

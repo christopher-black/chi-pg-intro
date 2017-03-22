@@ -20,7 +20,7 @@ router.get('/', function(req, res){
       res.send(500);
     } else {
       // We connected!!!!
-      db.query('SELECT * FROM "books";', function(queryError, result){
+      db.query('SELECT * FROM books;', function(queryError, result){
         done();
         if(queryError) {
           console.log('Error making query.');
