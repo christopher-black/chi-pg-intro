@@ -37,6 +37,16 @@
 - [ ] Form validation
 - [ ] Search for books using `GET` params
 
+**Client**
+
+- [ ] Delete button in HTML
+- [ ] Edit form & button
+- [ ] DELETE & EDIT AJAX (Peer Challenge)
+
+**Server**
+
+- [ ] DELETE & EDIT pg (Peer Challenge)
+
 ## DATABASE
 ```SQL
 CREATE TABLE books(
