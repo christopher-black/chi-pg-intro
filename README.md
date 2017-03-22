@@ -3,14 +3,14 @@
 ## Checklist
 **Server**
 
-- [ ] Setup node `npm init`
- - [ ] Add modules (express, body-parser, pg, jquery)
- - [ ] Folder structure
- - [ ] Set up our initial route
-- [ ] Create database table Postico
-- [ ] Create our SELECT query Postico
-- [ ] Create our GET route
-- [ ] Add `pg` to our GET route
+- [x] Setup node `npm init`
+ - [x] Add modules (express, body-parser, pg, jquery)
+ - [x] Folder structure
+ - [x] Set up our initial route
+- [x] Create database table Postico
+- [x] Create our SELECT query Postico
+- [x] Create our GET route
+- [x] Add `pg` to our GET route
 
 **Client**
 
