@@ -3,7 +3,7 @@
 ## Checklist
 **Server**
 
-- [ ] Setup node
+- [ ] Setup node `npm init`
  - [ ] Add modules (express, body-parser, pg, jquery)
  - [ ] Folder structure
  - [ ] Set up our initial route
