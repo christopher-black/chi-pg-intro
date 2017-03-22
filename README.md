@@ -27,4 +27,105 @@
 
 **Client**
 
-- [ ] Refresh our UI after a book is added
+- [x] Refresh our UI after a book is added
+
+
+**Stretch**
+
+- [ ] Add publisher and year
+- [ ] Clear form on submit
+- [ ] Form validation
+- [ ] Search for books using `GET` params
+
+## DATABASE
+```SQL
+CREATE TABLE books(
+	id SERIAL PRIMARY KEY,
+	title VARCHAR (1000) NOT NULL,
+	author VARCHAR (100) NOT NULL
+);
+
+INSERT INTO books (title, author) VALUES ('Rogue Lawyer', 'John Grisham');
+INSERT INTO books (title, author) VALUES ('Blue', 'Danielle Steel');
+INSERT INTO books (title, author) VALUES ('NYPD Red 4', 'James Patterson and Marshall Karp');
+
+
+SELECT * FROM "books";
+```
+
+## SERVER
+```JavaScript
+var express = require('express');
+var router = express.Router();
+var pg = require('pg');
+var config = {
+  database: 'chi', // the name of the database
+  host: 'localhost', // where is your database
+  port: 5432, // the port number for your database
+  max: 10, // how many connections at one time
+  idleTimeoutMillis: 30000 // 30 seconds to try to connect
+};
+
+var pool = new pg.Pool(config);
+
+router.get('/', function(req, res){
+  pool.connect(function(errorConnectingToDatabase, client, done){
+    if(errorConnectingToDatabase) {
+      // There was an error connecting to the database
+      console.log('Error connecting to database: ', errorConnectingToDatabase);
+      res.sendStatus(500);
+    } else {
+      // We connected to the database!!!
+      // Now, we're gonna' git stuff!!!!!
+      client.query('SELECT * FROM "books";', function(errorMakingQuery, result){
+        done();
+        if(errorMakingQuery) {
+          console.log('Error making the database query: ', errorMakingQuery);
+          res.sendStatus(500);
+        } else {
+          res.send(result.rows);
+        }
+      });
+    }
+  });
+});
+```
+
+## CLIENT
+```JavaScript
+function getBookData() {
+  $.ajax({
+    type: 'GET',
+    url: '/books',
+    success: function(response) {
+      console.log('response', response);
+      appendBooks(response);
+    }
+  });
+}
+
+function appendBooks(books) {
+  $('#bookShelf').empty();
+  for (var i = 0; i < books.length; i++) {
+    var currentBook = books[i];
+    var $newBook = $('<tr>');
+    $newBook.append('<td>' + currentBook.title + '</td>');
+    $newBook.append('<td>' + currentBook.author + '</td>');
+    $('#bookShelf').append($newBook);
+  }
+}
+```
+
+## HTML
+```HTML
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody id="bookShelf">
+  </tbody>
+</table>
+```
