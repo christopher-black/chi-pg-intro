@@ -16,14 +16,14 @@
 
 - [x] AJAX call to GET our books (print to console)
 - [x] Append them to the DOM
-- [ ] Create our HTML form
-- [ ] AJAX call to POST the form data
+- [x] Create our HTML form
+- [x] AJAX call to POST the form data
 
 **Server**
 
-- [ ] Set up our POST route in node and log data
-- [ ] Create our `INSERT` query in Postico
-- [ ] Use `pg` to write the data to the database
+- [x] Set up our POST route in node and log data
+- [x] Create our `INSERT` query in Postico
+- [x] Use `pg` to write the data to the database
 
 **Client**
 

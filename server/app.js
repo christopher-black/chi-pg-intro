@@ -6,6 +6,7 @@ var books = require('./routes/book.js');
 
 // Look for index.html in the public folder
 app.use(express.static('server/public'));
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/books', books);
 
