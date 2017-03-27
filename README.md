@@ -30,17 +30,16 @@
 - [x] Refresh our UI after a book is added
 
 
-**Stretch**
+**Stretch (Solo Exercise)**
 
 - [ ] Add publisher and year
 - [ ] Clear form on submit
 - [ ] Form validation
-- [ ] Search for books using `GET` params
 
 **Client**
 
-- [ ] Delete button in HTML
-- [ ] Edit form & button
+- [x] Delete button in HTML
+- [x] Edit form & button
 - [ ] DELETE & EDIT AJAX (Peer Challenge)
 
 **Server**
